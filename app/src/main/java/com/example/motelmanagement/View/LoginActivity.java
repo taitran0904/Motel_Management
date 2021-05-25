@@ -34,7 +34,9 @@ public class LoginActivity extends AppCompatActivity {
         edtUserName =  findViewById(R.id.edtUserName);
         txtDK =  findViewById(R.id.txtDK);
 
-        btnLogin.setOnClickListener(v -> Login(edtUserName.getText().toString(), edtPass.getText().toString()));
+        btnLogin.setOnClickListener(v -> {
+            Login(edtUserName.getText().toString(), edtPass.getText().toString());
+        });
         txtDK.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, SignUpActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
@@ -75,7 +77,10 @@ public class LoginActivity extends AppCompatActivity {
             if (cursor.getCount() < 1)
                 Toast.makeText(this, "Tên đăng nhập hoặc mật khẩu không chính xác !!!", Toast.LENGTH_SHORT).show();
             else {
+                cursor.moveToPosition(0);
+                int idUser = cursor.getInt(0);
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("ID_USER", idUser);
                 startActivity(intent);
             }
             cursor.close();

@@ -19,14 +19,16 @@
             style="@style/Widget.MaterialComponents.Toolbar.Primary" />
 
     </com.google.android.material.appbar.AppBarLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
+    <GridView
+        android:id="@+id/gridViewRoom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="55dp"
+        android:paddingRight="10dp"
+        android:scrollbars="none"
+        tools:listitem="@android:layout/simple_list_item_1" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

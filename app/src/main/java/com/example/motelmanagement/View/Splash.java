@@ -1,6 +1,5 @@
 package com.example.motelmanagement.View;
 
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,7 +16,6 @@ import com.example.motelmanagement.R;
 public class Splash extends AppCompatActivity {
     public static final String DATABASE_NAME = "Motel.db";
     SQLiteDatabase DB;
-    Context context;
     private static final String USER = "CREATE TABLE user (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,username TEXT NOT NULL,password TEXT NOT NULL, email TEXT NOT NULL, phone TEXT NOT NULL)";
     private static final String ROOM = "CREATE TABLE room ( id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, room_name VARCHAR(20) NOT NULL, deposit MONEY NOT NULL, electric_num INTEGER NOT NULL, water_num INTEGER NOT NULL, status bit NOT NULL, id_user INTEGER NOT NULL)";
     private static final String RENTER = "CREATE TABLE renter ( id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name NVARCHAR(50) NOT NULL, sex bit NOT NULL, birthday NVARCHAR(20) NOT NULL, cmnd VARCHAR(20) NOT NULL, phone VARCHAR(12) NOT NULL, dayofhide NVARCHAR(20) NOT NULL, id_room INTEGER NOT NULL, id_user INTEGER NOT NULL)";
@@ -32,8 +30,8 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         initDB();
-        app_name = (TextView) findViewById(R.id.app_name);
-        lottieAnimationView = (LottieAnimationView) findViewById(R.id.lottie);
+        app_name =  findViewById(R.id.app_name);
+        lottieAnimationView = findViewById(R.id.lottie);
 
         app_name.animate().translationY(0).setDuration(1000).setStartDelay(4000);
         lottieAnimationView.animate().translationY(0).setDuration(1000).setStartDelay(4000);
